@@ -2,33 +2,13 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>ラベル作成ツール</title>
-    <style>
-        body { font-family: sans-serif; margin: 40px; }
-        .box { border: 1px solid #ccc; padding: 20px; border-radius: 8px; max-width: 500px; }
-        input, select, button { display: block; margin: 10px 0; }
-        .radio-group { display: flex; gap: 15px; margin-bottom: 20px; }
-    </style>
+    <title>ラベル印刷用データ変換ツール</title>
 </head>
 <body>
-    <h1>DMラベル作成ツール</h1>
-    <div class="box">
-        <form method="post" enctype="multipart/form-data">
-            <label>1. CSVファイルを選択:</label>
-            <input type="file" name="files" multiple required>
-            
-            <label>2. 区分（上客・尾関など）:</label>
-            <input type="text" name="category" placeholder="上客" required>
-            
-            <label>3. データの種類を選択:</label>
-            <div class="radio-group">
-                <label><input type="radio" name="mode" value="google" checked> Google連絡先</label>
-                <label><input type="radio" name="mode" value="shopify"> Shopify</label>
-                <label><input type="radio" name="mode" value="sent"> 送付済みリスト</label>
-            </div>
-            
-            <button type="submit">CSV変換してダウンロード</button>
-        </form>
-    </div>
+    <h1>ラベル印刷用データ変換</h1>
+    <form action="/convert" method="post">
+        <textarea name="raw_data" rows="10" cols="80" placeholder="ここにリストを貼り付けてください"></textarea><br>
+        <button type="submit">CSV変換してダウンロード</button>
+    </form>
 </body>
 </html>
